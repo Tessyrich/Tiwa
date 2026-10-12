@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #151311;
+  --color-ink-soft: #4a4541;
+  --color-muted: #7a736d;
+  --color-line: #e8e3dd;
+  --color-paper: #ffffff;
+  --color-cream: #faf7f2;
+  --color-ember: #b8431f;
+  --color-ember-dark: #933316;
+  --color-gold: #c9972b;
+  --color-leaf: #2f5d3a;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  ::selection { background: #f3d9cf; }
+  h1, h2, h3, .display { font-family: var(--font-display); font-variation-settings: "opsz" 144, "SOFT" 50; }
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember/40 focus-visible:ring-offset-2;
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12; }
+  .eyebrow { @apply text-[11px] font-semibold uppercase tracking-[0.18em] text-ember; }
+  .btn-primary { @apply btn bg-ink text-white hover:bg-ember; }
+  .btn-ghost { @apply btn border border-ink/15 bg-white text-ink hover:border-ink; }
+  .btn-light { @apply btn bg-white text-ink hover:bg-cream; }
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  .marquee { animation: marquee 40s linear infinite; }
+}
+
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .marquee { animation: none; }
+}
+
+/* Restaurant menu typography */
+.menu-list .leader { flex: 1 1 auto; min-width: 1.5rem; border-bottom: 1px dotted #b9b2aa; transform: translateY(-5px); margin: 0 .35rem; }
+.ornament { display: inline-flex; align-items: center; gap: .9rem; color: var(--color-ember); }
+.ornament::before, .ornament::after { content: ""; width: 2.25rem; height: 1px; background: currentColor; opacity: .5; }
+.wordmark { font-family: var(--font-display); font-variation-settings: "opsz" 144, "SOFT" 30, "wght" 500; letter-spacing: -0.02em; }
+.wordmark em { font-style: italic; color: var(--color-ember); font-variation-settings: "opsz" 144, "SOFT" 60, "wght" 400; }
+.h-serif em { font-style: italic; font-variation-settings: "opsz" 144, "SOFT" 80, "wght" 400; }
+.drop-cap::first-letter { font-family: var(--font-display); font-size: 3.4em; float: left; line-height: .85; padding-right: .12em; margin-top: .05em; color: var(--color-ember); }
+.scroll-cue { animation: cue 2.2s ease-in-out infinite; }
+@keyframes cue { 0%,100% { transform: translateY(0); opacity: .7 } 50% { transform: translateY(8px); opacity: 1 } }
+@media (prefers-reduced-motion: reduce) { .scroll-cue { animation: none } }
+
+.hdr-shadow a, .hdr-shadow nav { text-shadow: 0 1px 12px rgba(0,0,0,.45); }
+.hdr-shadow .btn { text-shadow: none; }

@@ -1,0 +1,304 @@
+---
+import Base from '../layouts/Base.astro';
+import MenuList from '../components/MenuList.astro';
+import site from '../data/site.json';
+import menu from '../data/menu.json';
+
+const pick = (id: string, names: string[]) => {
+  const s = menu.sections.find((x) => x.id === id)!;
+  return s.items.filter((i) => names.includes(i.name));
+};
+const menuLeft = [
+  { title: 'Small plates & grill', items: pick('small-plates', ['Beef Suya', 'Asun', 'Moin Moin', 'Puff Puff']) },
+  { title: 'Pepper soups', items: pick('soups', ['Goat Pepper Soup', 'Catfish Pepper Soup']) },
+];
+const menuRight = [
+  { title: 'Rice', items: pick('rice', ['Jollof Rice', 'Ofada Rice & Ayamase', 'Nigerian Fried Rice']) },
+  { title: 'Soups & swallows', items: pick('swallows', ['Egusi', 'Abula (Ewedu & Gbegiri)', 'Efo Riro']) },
+  { title: 'Fish', items: pick('fish', ['Eja Tutu']) },
+];
+
+const gallery = [
+  { src: '/img/suya-close', alt: 'Charcoal beef suya on brown paper', cls: 'row-span-2' },
+  { src: '/img/jollof-close', alt: 'Jollof rice being served', cls: '' },
+  { src: '/img/chapman', alt: 'A Chapman cocktail', cls: '' },
+  { src: '/img/pass', alt: 'Plating at the pass', cls: 'col-span-2' },
+  { src: '/img/smallchops', alt: 'Small chops platter', cls: '' },
+  { src: '/img/egusi', alt: 'Pounded yam and egusi', cls: '' },
+];
+
+const reviews = [
+  { quote: 'The suya and ayamase are unmatched elsewhere. They are cooking fresh and keeping the place clean.', who: 'Scarlett', via: 'Google' },
+  { quote: 'If you crave proper homemade Nigerian local dishes in London, Tiwa ’N’ Tiwa is your plug.', who: 'Samson', via: 'Google' },
+  { quote: 'Strangely addictive. We’ve polished off a whole plate or box more than once.', who: 'The Infatuation', via: '2024' },
+];
+---
+<Base transparentHeader>
+  <!-- Hero -->
+  <section class="relative isolate flex min-h-[100svh] items-center justify-center overflow-hidden bg-ink text-center text-white">
+    <picture>
+      <source srcset="/img/hero.webp" type="image/webp" />
+      <img src="/img/hero.jpg" alt="" fetchpriority="high" width="1920" height="1280" class="absolute inset-0 -z-20 h-full w-full object-cover" />
+    </picture>
+    <div class="absolute inset-0 -z-10 bg-ink/45"></div>
+    <div class="absolute inset-x-0 top-0 -z-10 h-64 bg-gradient-to-b from-ink/80 via-ink/35 to-transparent"></div>
+    <div class="absolute inset-x-0 bottom-0 -z-10 h-64 bg-gradient-to-t from-ink/70 to-transparent"></div>
+
+    <div class="container-x flex flex-col items-center pb-28 pt-32">
+      <p class="ornament text-[11px] font-semibold uppercase tracking-[0.22em] !text-white/85">Peckham · London</p>
+      <h1 class="wordmark mt-6 text-[64px] leading-[0.95] sm:text-8xl lg:text-[132px]">Tiwa <em class="!text-gold">’N’</em> Tiwa</h1>
+      <p class="mt-7 max-w-lg font-display text-xl leading-snug text-white/90 sm:text-2xl">Nigerian cooking from the charcoal grill and the slow pot.</p>
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
+        <a href={site.bookingUrl} target="_blank" rel="noopener" class="btn-light !px-8">Reserve a table</a>
+        <a href="/menu" class="btn border border-white/50 !px-8 text-white hover:bg-white/10">View menus</a>
+      </div>
+    </div>
+
+    <div class="absolute inset-x-0 bottom-0">
+      <div class="container-x flex flex-col items-center gap-4 pb-8 text-[13px] text-white/80 sm:flex-row sm:justify-between">
+        <span>{site.address.line1}, SE15</span>
+        <span class="scroll-cue hidden sm:inline-flex" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 4v16m0 0l-6-6m6 6l6-6"/></svg></span>
+        <span>Open daily from midday · Walk-ins welcome</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Press strip -->
+  <div class="border-b border-line">
+    <div class="container-x flex flex-col items-center gap-4 py-7 sm:flex-row sm:justify-center sm:gap-12">
+      <span class="text-[11px] uppercase tracking-[0.2em] text-muted">As featured in</span>
+      <ul class="flex flex-wrap items-center justify-center gap-x-10 gap-y-3 font-display text-lg text-ink-soft sm:text-xl">
+        <li>The Infatuation</li>
+        <li>Harden’s</li>
+        <li class="inline-flex items-center gap-2"><span class="text-gold" aria-hidden="true">★</span> 4.3 on Google</li>
+        <li>Uber Eats</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Welcome -->
+  <section class="py-24 sm:py-32">
+    <div class="container-x reveal mx-auto max-w-3xl text-center">
+      <p class="ornament text-[11px] font-semibold uppercase tracking-[0.22em]">Welcome</p>
+      <h2 class="h-serif mt-6 text-4xl leading-[1.08] sm:text-6xl">Honest Yoruba cooking, <em>made for sharing.</em></h2>
+      <p class="drop-cap mt-10 text-left text-lg leading-[1.8] text-ink-soft sm:text-xl">
+        Peckham is the heart of Nigerian London, and Tiwa ’N’ Tiwa is one of its kitchens. We cook the way it is done at home in Lagos and Ibadan: stews simmered for hours, rice cooked until it catches at the bottom of the pot, and suya sliced thin and grilled over real charcoal. Whether you grew up on this food or you are trying egusi for the first time, you will get a warm welcome, a generous plate and a straight answer about how hot anything is.
+      </p>
+    </div>
+  </section>
+
+  <!-- Story 1 -->
+  <section id="story" class="scroll-mt-20 bg-cream py-20 sm:py-28">
+    <div class="container-x grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+      <div class="reveal">
+        <picture>
+          <source srcset="/img/about.webp" type="image/webp" />
+          <img src="/img/about.jpg" alt="Suya grilling over charcoal outside the restaurant" loading="lazy" width="1200" height="1500" class="aspect-[4/5] w-full object-cover" />
+        </picture>
+      </div>
+      <div class="reveal lg:pr-10">
+        <p class="ornament text-[11px] font-semibold uppercase tracking-[0.22em]">From the grill</p>
+        <h2 class="h-serif mt-6 text-4xl leading-[1.08] sm:text-5xl">Suya the way <em>Lagos does it.</em></h2>
+        <div class="mt-6 space-y-4 text-lg leading-relaxed text-ink-soft">
+          <p>Beef, cut thin, rubbed in our own yaji of ground peanuts, ginger and chilli, then grilled over charcoal until the edges catch. We serve it with raw onion and tomato to cool your mouth between bites.</p>
+          <p>On sunny days the grill moves out onto the High Street. Follow the smoke.</p>
+        </div>
+        <a href="/menu#small-plates" class="mt-8 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.12em] hover:text-ember">See the grill menu <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story 2 -->
+  <section class="py-20 sm:py-28">
+    <div class="container-x grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+      <div class="reveal order-2 lg:order-1 lg:pl-10">
+        <p class="ornament text-[11px] font-semibold uppercase tracking-[0.22em]">The room</p>
+        <h2 class="h-serif mt-6 text-4xl leading-[1.08] sm:text-5xl">Loud, warm, and <em>exactly like home.</em></h2>
+        <div class="mt-6 space-y-4 text-lg leading-relaxed text-ink-soft">
+          <p>A family-run canteen, not a fine-dining room. Afrobeats on the screen, football on match days, Guinness Foreign Extra in the fridge and big tables for big families.</p>
+          <p>The name means “ours and ours” in Yoruba. That is the whole idea: our food, our people, your table.</p>
+        </div>
+        <dl class="mt-8 grid grid-cols-3 gap-6 border-t border-line pt-6 text-sm">
+          <div><dt class="text-muted">Cuisine</dt><dd class="mt-1 font-medium">Yoruba · Nigerian</dd></div>
+          <div><dt class="text-muted">Good for</dt><dd class="mt-1 font-medium">Groups · Families</dd></div>
+          <div><dt class="text-muted">Price</dt><dd class="mt-1 font-medium">£10 – £20 pp</dd></div>
+        </dl>
+      </div>
+      <div class="reveal order-1 lg:order-2">
+        <picture>
+          <source srcset="/img/interior.webp" type="image/webp" />
+          <img src="/img/interior.jpg" alt="The dining room" loading="lazy" width="1600" height="1067" class="aspect-[4/3] w-full object-cover" />
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu -->
+  <section id="menu" class="scroll-mt-20 border-y border-line bg-cream py-24 sm:py-32">
+    <div class="container-x">
+      <div class="reveal mx-auto max-w-2xl text-center">
+        <p class="ornament text-[11px] font-semibold uppercase tracking-[0.22em]">The menu</p>
+        <h2 class="h-serif mt-6 text-4xl leading-[1.08] sm:text-6xl">Tonight at <em>Tiwa ’N’ Tiwa</em></h2>
+        <p class="mt-5 text-lg text-ink-soft">A taste of the menu. Every main comes with your choice of protein, and anything marked hot can be made milder.</p>
+      </div>
+      <div class="reveal mt-14 grid gap-10 lg:grid-cols-12 lg:gap-14">
+        <div class="hidden lg:col-span-4 lg:block">
+          <picture>
+            <source srcset="/img/tilapia.webp" type="image/webp" />
+            <img src="/img/tilapia.jpg" alt="Whole grilled tilapia" loading="lazy" width="1000" height="1250" class="sticky top-28 aspect-[4/5] w-full object-cover" />
+          </picture>
+        </div>
+        <div class="grid gap-x-12 gap-y-10 sm:grid-cols-2 lg:col-span-8">
+          <div class="space-y-10">
+            {menuLeft.map((g) => (
+              <div>
+                <h3 class="font-display text-2xl">{g.title}</h3>
+                <div class="mt-2 border-t border-ink/15"><MenuList items={g.items} /></div>
+              </div>
+            ))}
+          </div>
+          <div class="space-y-10">
+            {menuRight.map((g) => (
+              <div>
+                <h3 class="font-display text-2xl">{g.title}</h3>
+                <div class="mt-2 border-t border-ink/15"><MenuList items={g.items} /></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div class="reveal mt-14 flex flex-col items-center gap-4">
+        <a href="/menu" class="btn-primary !px-8">View the full menu</a>
+        <p class="text-xs text-muted">Menu changes with the market. Please tell us about any allergies.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="scroll-mt-20 py-24 sm:py-32">
+    <div class="container-x">
+      <div class="reveal mx-auto max-w-2xl text-center">
+        <p class="ornament text-[11px] font-semibold uppercase tracking-[0.22em]">Gallery</p>
+        <h2 class="h-serif mt-6 text-4xl leading-[1.08] sm:text-6xl">From the <em>pass.</em></h2>
+      </div>
+      <div class="reveal mt-14 grid auto-rows-[200px] grid-cols-2 gap-3 sm:auto-rows-[260px] md:grid-cols-4 md:gap-4">
+        {gallery.map((g) => (
+          <figure class:list={['overflow-hidden bg-cream', g.cls]}>
+            <picture>
+              <source srcset={`${g.src}.webp`} type="image/webp" />
+              <img src={`${g.src}.jpg`} alt={g.alt} loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.04]" />
+            </picture>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="border-y border-line bg-cream py-24 sm:py-32">
+    <div class="container-x">
+      <div class="reveal mx-auto max-w-3xl text-center">
+        <p class="text-gold" aria-hidden="true">★★★★★</p>
+        <p class="mt-3 text-sm text-muted">Rated {site.rating.score} by {site.rating.count} guests on Google</p>
+      </div>
+      <div class="reveal mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
+        {reviews.map((r) => (
+          <figure class="text-center md:border-r md:border-line md:px-6 md:last:border-0">
+            <blockquote class="font-display text-[22px] leading-snug tracking-tight sm:text-2xl">“{r.quote}”</blockquote>
+            <figcaption class="mt-5 text-[11px] uppercase tracking-[0.18em] text-muted">{r.who} · {r.via}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Events -->
+  <section id="events" class="scroll-mt-20 bg-ink text-white">
+    <div class="grid lg:grid-cols-2">
+      <div class="reveal order-2 flex items-center px-5 py-20 sm:px-12 lg:order-1 lg:px-20 lg:py-28">
+        <div class="max-w-lg">
+          <p class="ornament text-[11px] font-semibold uppercase tracking-[0.22em] !text-gold">Private dining & events</p>
+          <h2 class="h-serif mt-6 text-4xl leading-[1.08] sm:text-5xl">Bring <em>everyone.</em></h2>
+          <p class="mt-6 text-lg leading-relaxed text-white/75">Birthdays, naming ceremonies, work dinners, or a Sunday with the whole family. We seat big tables, put sharing platters in the middle, and cater trays of jollof, suya and small chops for events across London.</p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent('Hi Tiwa N Tiwa, I would like to ask about a group booking.')}`} target="_blank" rel="noopener" class="btn-light">Enquire on WhatsApp</a>
+            <a href={`tel:${site.phone}`} class="btn border border-white/30 text-white hover:bg-white/10">Call {site.phoneDisplay}</a>
+          </div>
+          <p class="mt-4 text-xs text-white/50">Parties of 8 or more, give us a day’s notice.</p>
+        </div>
+      </div>
+      <div class="order-1 lg:order-2">
+        <picture>
+          <source srcset="/img/friends.webp" type="image/webp" />
+          <img src="/img/friends.jpg" alt="Friends sharing dishes at the table" loading="lazy" width="1000" height="1250" class="h-full max-h-[520px] w-full object-cover lg:max-h-none" />
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reservations -->
+  <section id="reservations" class="scroll-mt-20 py-24 sm:py-32">
+    <div class="container-x reveal mx-auto max-w-3xl text-center">
+      <p class="ornament text-[11px] font-semibold uppercase tracking-[0.22em]">Reservations</p>
+      <h2 class="h-serif mt-6 text-4xl leading-[1.08] sm:text-6xl">Book a <em>table.</em></h2>
+      <p class="mt-5 text-lg text-ink-soft">Walk-ins are always welcome. For groups and weekend evenings, booking ahead is wise.</p>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+        <a href={site.bookingUrl} target="_blank" rel="noopener" class="btn-primary !px-8">Reserve online</a>
+        <a href={`tel:${site.phone}`} class="btn-ghost">Call {site.phoneDisplay}</a>
+      </div>
+      <dl class="mt-14 grid gap-6 border-t border-line pt-10 sm:grid-cols-3">
+        {site.hours.map((h) => (
+          <div>
+            <dt class="text-[11px] uppercase tracking-[0.18em] text-muted">{h.days}</dt>
+            <dd class="mt-2 font-display text-2xl">{h.open} – {h.close === '00:00' ? 'midnight' : h.close}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <!-- Find us -->
+  <section id="find-us" class="scroll-mt-20 border-t border-line bg-cream py-20 sm:py-28">
+    <div class="container-x grid gap-12 lg:grid-cols-12 lg:gap-16">
+      <div class="reveal lg:col-span-5">
+        <p class="ornament text-[11px] font-semibold uppercase tracking-[0.22em]">Find us</p>
+        <h2 class="h-serif mt-6 text-4xl leading-[1.08] sm:text-5xl">On the <em>High Street.</em></h2>
+        <address class="mt-6 font-display text-2xl not-italic leading-snug">{site.address.line1}<br />{site.address.line2}</address>
+        <ul class="mt-6 space-y-2 text-sm text-ink-soft">
+          <li><span class="font-medium text-ink">Train:</span> Peckham Rye (Overground, Southern, Thameslink), 5 minutes’ walk.</li>
+          <li><span class="font-medium text-ink">Bus:</span> 12, 36, 171, 345 and 436 stop on Peckham High Street.</li>
+          <li><span class="font-medium text-ink">Delivery:</span> Uber Eats across south-east London.</li>
+        </ul>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href={site.mapsUrl} target="_blank" rel="noopener" class="btn-primary">Get directions</a>
+          <a href={site.uberEats} target="_blank" rel="noopener" class="btn-ghost">Order on Uber Eats</a>
+        </div>
+      </div>
+      <div class="reveal lg:col-span-7">
+        <div class="overflow-hidden border border-line bg-white">
+          <iframe title="Map showing Tiwa 'N' Tiwa at 34 Peckham High Street" src={site.mapsEmbed} width="100%" height="480" style="border:0; filter: grayscale(1) contrast(1.05);" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram -->
+  <section class="py-16 sm:py-20">
+    <div class="container-x">
+      <div class="reveal flex flex-col items-center gap-2 text-center">
+        <p class="ornament text-[11px] font-semibold uppercase tracking-[0.22em]">Follow along</p>
+        <a href={site.instagram} target="_blank" rel="noopener" class="font-display text-2xl hover:text-ember">@tiwantiwa</a>
+      </div>
+      <div class="reveal mt-8 grid grid-cols-3 gap-2 sm:grid-cols-6">
+        {['suya-close', 'jollof-close', 'chapman', 'smallchops', 'peppersoup', 'ayamase'].map((n) => (
+          <a href={site.instagram} target="_blank" rel="noopener" class="block aspect-square overflow-hidden bg-cream">
+            <picture>
+              <source srcset={`/img/${n}.webp`} type="image/webp" />
+              <img src={`/img/${n}.jpg`} alt="" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.05]" />
+            </picture>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

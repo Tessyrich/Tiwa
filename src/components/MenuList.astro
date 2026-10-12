@@ -1,0 +1,21 @@
+---
+interface Item { name: string; desc?: string; price: string; tags?: string[] }
+interface Props { items: Item[]; compact?: boolean }
+const { items, compact = false } = Astro.props;
+const tagLabel: Record<string, string> = { signature: 'Signature', spicy: 'Hot', vegetarian: 'V' };
+---
+<ul class:list={['menu-list', compact && 'menu-list--compact']}>
+  {items.map((it) => (
+    <li class="py-3.5">
+      <div class="flex items-baseline gap-2">
+        <span class="font-display text-[19px] leading-tight tracking-tight">{it.name}</span>
+        {it.tags?.filter((t) => t !== 'signature' || !compact).map((t) => (
+          <span class:list={['text-[10px] font-semibold uppercase tracking-[0.14em]', t === 'spicy' ? 'text-ember' : t === 'vegetarian' ? 'text-leaf' : 'text-gold']}>{tagLabel[t]}</span>
+        ))}
+        <span class="leader" aria-hidden="true"></span>
+        <span class="shrink-0 text-[15px] font-medium tabular-nums">{it.price}</span>
+      </div>
+      {it.desc && !compact && <p class="mt-1 max-w-md text-[13.5px] leading-relaxed text-muted">{it.desc}</p>}
+    </li>
+  ))}
+</ul>

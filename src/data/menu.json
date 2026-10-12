@@ -1,0 +1,85 @@
+{
+  "note": "Prices shown are indicative and taken from current delivery listings. Final menu and prices to be confirmed with the restaurant.",
+  "sections": [
+    {
+      "id": "small-plates",
+      "title": "Small plates & grill",
+      "intro": "Start with something from the charcoal grill. Our suya is cut thin, dusted with yaji spice and finished over open flame.",
+      "items": [
+        { "name": "Beef Suya", "desc": "Thin-sliced beef, house yaji peanut and chilli rub, charcoal grilled. Served with raw onion and tomato.", "price": "15.99", "tags": ["signature", "spicy"] },
+        { "name": "Chicken Suya", "desc": "Chicken thigh in the same smoky yaji rub, grilled until the edges char.", "price": "13.99", "tags": ["spicy"] },
+        { "name": "Asun", "desc": "Peppered goat, chopped and tossed in a hot pepper and onion sauce. A Lagos party classic.", "price": "12.99", "tags": ["spicy"] },
+        { "name": "Peppered Gizzard", "desc": "Slow-cooked gizzard in a rich red pepper sauce.", "price": "9.99", "tags": ["spicy"] },
+        { "name": "Moin Moin", "desc": "Steamed black-eyed bean pudding with peppers and onion. Soft, savoury and naturally gluten free.", "price": "4.50", "tags": ["vegetarian"] },
+        { "name": "Puff Puff", "desc": "Light, lightly sweet fried dough balls. Six pieces.", "price": "4.00", "tags": ["vegetarian"] }
+      ]
+    },
+    {
+      "id": "soups",
+      "title": "Pepper soups",
+      "intro": "Light, aromatic broths built on a blend of native spices. The dish Nigerians reach for when it is cold outside.",
+      "items": [
+        { "name": "Goat Pepper Soup", "desc": "Tender goat in a clear, fragrant broth of calabash nutmeg, uziza and chilli.", "price": "11.99", "tags": ["spicy"] },
+        { "name": "Catfish Pepper Soup", "desc": "Fresh catfish steaks simmered gently in spiced broth.", "price": "13.99", "tags": ["spicy"] },
+        { "name": "Assorted Meat Pepper Soup", "desc": "A mix of beef, tripe and offal for the adventurous.", "price": "12.99", "tags": ["spicy"] }
+      ]
+    },
+    {
+      "id": "rice",
+      "title": "Rice",
+      "intro": "Every plate comes with your choice of protein. Add fried plantain, because you should.",
+      "items": [
+        { "name": "Jollof Rice", "desc": "Long-grain rice cooked down in a smoky tomato and pepper base with a hint of ginger and star anise. Two pieces of meat.", "price": "12.99", "tags": ["signature"] },
+        { "name": "Ofada Rice & Ayamase", "desc": "Nutty local brown rice with our dark green pepper stew of bell peppers, palm oil and assorted meats.", "price": "14.99", "tags": ["signature", "spicy"] },
+        { "name": "Nigerian Fried Rice", "desc": "Rice tossed with mixed vegetables, liver and shrimp. Two pieces of meat.", "price": "12.99", "tags": [] },
+        { "name": "Rice & Beans", "desc": "Rice and honey beans cooked together, served with stew and two pieces of meat.", "price": "12.49", "tags": [] },
+        { "name": "White Rice & Stew", "desc": "Plain rice with our slow-cooked red stew. Two pieces of meat.", "price": "11.99", "tags": [] }
+      ]
+    },
+    {
+      "id": "swallows",
+      "title": "Soups & swallows",
+      "intro": "Choose a swallow, choose a soup, eat with your hands if you like. New to this? Ask us and we'll walk you through it.",
+      "swallows": ["Pounded Yam", "Amala", "Eba", "Semovita", "Wheat"],
+      "items": [
+        { "name": "Egusi", "desc": "Ground melon seed soup with spinach, palm oil and assorted meats. The one everyone starts with.", "price": "13.99", "tags": ["signature"] },
+        { "name": "Efo Riro", "desc": "Rich spinach stew with peppers, locust beans and assorted meat and fish.", "price": "13.99", "tags": [] },
+        { "name": "Abula (Ewedu & Gbegiri)", "desc": "Jute leaf soup and bean soup served together over stew. The classic Ibadan pairing with amala.", "price": "13.99", "tags": ["signature"] },
+        { "name": "Ogbono", "desc": "Silky wild mango seed soup with assorted meats.", "price": "13.99", "tags": [] },
+        { "name": "Okra Soup", "desc": "Fresh okra, fish and meat in a light palm oil broth.", "price": "13.49", "tags": [] }
+      ]
+    },
+    {
+      "id": "fish",
+      "title": "Fish & grills",
+      "intro": "Whole fish, seasoned and grilled to order. Allow 20 minutes.",
+      "items": [
+        { "name": "Eja Tutu", "desc": "Whole grilled tilapia in a pepper marinade, served with fried plantain and a side of your choice.", "price": "18.99", "tags": ["signature"] },
+        { "name": "Grilled Croaker", "desc": "Whole croaker, charred and spiced, with onion and tomato salad.", "price": "19.99", "tags": [] },
+        { "name": "Grilled Chicken", "desc": "Half chicken in a smoky pepper glaze. Served with jollof or fries.", "price": "14.99", "tags": [] }
+      ]
+    },
+    {
+      "id": "sides",
+      "title": "Sides",
+      "items": [
+        { "name": "Dodo (fried plantain)", "price": "3.50", "tags": ["vegetarian"] },
+        { "name": "Ewa (beans) with stew", "price": "4.50", "tags": ["vegetarian"] },
+        { "name": "Extra meat", "price": "3.00", "tags": [] },
+        { "name": "Ponmo", "price": "3.00", "tags": [] },
+        { "name": "Boiled yam", "price": "4.00", "tags": ["vegetarian"] }
+      ]
+    },
+    {
+      "id": "drinks",
+      "title": "Drinks",
+      "items": [
+        { "name": "Chapman", "desc": "Nigeria's house cocktail: grenadine, citrus, bitters, Fanta and Sprite. Non-alcoholic.", "price": "4.50", "tags": [] },
+        { "name": "Zobo", "desc": "Chilled hibiscus with ginger and pineapple.", "price": "3.50", "tags": [] },
+        { "name": "Supermalt / Maltina", "price": "2.50", "tags": [] },
+        { "name": "Guinness Foreign Extra Stout", "price": "4.50", "tags": [] },
+        { "name": "Soft drinks & water", "price": "1.80", "tags": [] }
+      ]
+    }
+  ]
+}

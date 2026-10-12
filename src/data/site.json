@@ -1,0 +1,20 @@
+{
+  "name": "Tiwa 'N' Tiwa",
+  "tagline": "West African cooking on Peckham High Street",
+  "address": { "line1": "34 Peckham High Street", "line2": "Peckham, London SE15 5DP" },
+  "phone": "+447448963313",
+  "phoneDisplay": "07448 963313",
+  "whatsapp": "447448963313",
+  "email": "hello@tiwantiwa.co.uk",
+  "bookingUrl": "https://tiwa-n-tiwa.menu-world.com/",
+  "uberEats": "https://www.ubereats.com/gb/store/tiwa-n-tiwa-african-restaurant/SzN0fQzFRIyOAzYiumIw5A",
+  "instagram": "https://instagram.com/",
+  "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tiwa+N+Tiwa+34+Peckham+High+Street+SE15+5DP",
+  "mapsEmbed": "https://www.google.com/maps?q=34+Peckham+High+Street,+London+SE15+5DP&output=embed",
+  "hours": [
+    { "days": "Monday – Thursday", "open": "12:00", "close": "23:00" },
+    { "days": "Friday – Saturday", "open": "12:00", "close": "00:00" },
+    { "days": "Sunday", "open": "12:00", "close": "22:00" }
+  ],
+  "rating": { "score": "4.3", "count": "235+", "source": "Google" }
+}

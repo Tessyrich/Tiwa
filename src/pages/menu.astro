@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+import MenuList from '../components/MenuList.astro';
+import site from '../data/site.json';
+import menu from '../data/menu.json';
+const split = <T,>(a: T[]) => { const h = Math.ceil(a.length / 2); return [a.slice(0, h), a.slice(h)]; };
+---
+<Base transparentHeader title={`Menus — ${site.name}, Peckham`} description="The full Tiwa 'N' Tiwa menu: charcoal suya, jollof and ofada rice, pepper soups, egusi, efo riro and amala, whole grilled fish, sides and drinks.">
+  <section class="relative isolate flex min-h-[56svh] items-end overflow-hidden bg-ink text-white">
+    <picture>
+      <source srcset="/img/pass.webp" type="image/webp" />
+      <img src="/img/pass.jpg" alt="" width="1920" height="1280" class="absolute inset-0 -z-20 h-full w-full object-cover" />
+    </picture>
+    <div class="absolute inset-0 -z-10 bg-gradient-to-t from-ink/80 via-ink/40 to-ink/60"></div>
+    <div class="container-x pb-14 pt-40 text-center sm:pb-20">
+      <p class="ornament text-[11px] font-semibold uppercase tracking-[0.22em] !text-white/85">Menus</p>
+      <h1 class="h-serif mt-5 text-5xl leading-[1] sm:text-7xl">Lunch &amp; <em>dinner</em></h1>
+      <p class="mx-auto mt-5 max-w-xl text-white/80">Served daily from midday. Every main comes with your choice of protein, and anything marked hot can be made milder.</p>
+    </div>
+  </section>
+
+  <nav class="sticky top-16 z-40 border-b border-line bg-white/92 backdrop-blur sm:top-[76px]" aria-label="Menu sections">
+    <div class="container-x flex gap-1 overflow-x-auto py-3 text-[12px] font-medium uppercase tracking-[0.12em] [scrollbar-width:none]">
+      {menu.sections.map((s) => <a href={`#${s.id}`} class="shrink-0 px-3 py-2 text-ink-soft hover:text-ember">{s.title}</a>)}
+    </div>
+  </nav>
+
+  <div class="container-x">
+    {menu.sections.map((s) => {
+      const [a, b] = split(s.items);
+      return (
+        <section id={s.id} class="scroll-mt-36 border-b border-line py-16 last:border-0 sm:py-24">
+          <div class="reveal mx-auto max-w-2xl text-center">
+            <h2 class="h-serif text-4xl sm:text-5xl">{s.title}</h2>
+            {'intro' in s && s.intro && <p class="mt-4 text-base leading-relaxed text-ink-soft">{s.intro}</p>}
+            {'swallows' in s && s.swallows && (
+              <ul class="mt-5 flex flex-wrap justify-center gap-2">
+                {s.swallows.map((w) => <li class="rounded-full border border-line px-3 py-1.5 text-sm">{w}</li>)}
+              </ul>
+            )}
+          </div>
+          <div class="reveal mx-auto mt-10 grid max-w-5xl gap-x-16 md:grid-cols-2">
+            <div class="border-t border-ink/15"><MenuList items={a} /></div>
+            <div class="border-t border-ink/15"><MenuList items={b} /></div>
+          </div>
+        </section>
+      );
+    })}
+  </div>
+
+  <section class="bg-cream py-14">
+    <div class="container-x mx-auto grid max-w-4xl gap-8 text-center md:grid-cols-2 md:text-left">
+      <div>
+        <p class="eyebrow">Allergens &amp; dietary</p>
+        <p class="mt-3 text-sm leading-relaxed text-ink-soft">Suya contains peanuts. Many soups contain fish and crayfish. Moin moin, dodo, ewa and boiled yam are vegetarian; ask about vegan options. Please tell us about any allergy before ordering.</p>
+      </div>
+      <div>
+        <p class="eyebrow">Prices</p>
+        <p class="mt-3 text-sm leading-relaxed text-ink-soft">{menu.note} All prices include VAT. A discretionary 10% service charge is added for tables of six or more.</p>
+      </div>
+    </div>
+    <div class="mt-10 flex justify-center"><a href={site.bookingUrl} target="_blank" rel="noopener" class="btn-primary !px-8">Reserve a table</a></div>
+  </section>
+</Base>

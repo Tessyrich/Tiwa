@@ -1,0 +1,155 @@
+{
+  "note": "Every photograph on this demo is AI-generated placeholder imagery, created to show the design direction. None of it is a photo of Tiwa 'N' Tiwa's actual food or dining room. Before launch, all images will be replaced with real photographs of the restaurant's dishes and space.",
+  "images": [
+    {
+      "file": "/img/hero.jpg",
+      "use": "Homepage hero",
+      "title": "West African feast, overhead",
+      "author": "AI-generated",
+      "license": "Placeholder",
+      "licenseUrl": "#",
+      "source": "#",
+      "changes": ""
+    },
+    {
+      "file": "/img/suya.jpg",
+      "use": "Beef suya card",
+      "title": "Beef suya",
+      "author": "AI-generated",
+      "license": "Placeholder",
+      "licenseUrl": "#",
+      "source": "#",
+      "changes": ""
+    },
+    {
+      "file": "/img/jollof.jpg",
+      "use": "Jollof rice card",
+      "title": "Jollof rice",
+      "author": "AI-generated",
+      "license": "Placeholder",
+      "licenseUrl": "#",
+      "source": "#",
+      "changes": ""
+    },
+    {
+      "file": "/img/tilapia.jpg",
+      "use": "Eja tutu card",
+      "title": "Grilled tilapia",
+      "author": "AI-generated",
+      "license": "Placeholder",
+      "licenseUrl": "#",
+      "source": "#",
+      "changes": ""
+    },
+    {
+      "file": "/img/egusi.jpg",
+      "use": "Pounded yam & egusi card",
+      "title": "Pounded yam and egusi",
+      "author": "AI-generated",
+      "license": "Placeholder",
+      "licenseUrl": "#",
+      "source": "#",
+      "changes": ""
+    },
+    {
+      "file": "/img/ayamase.jpg",
+      "use": "Ofada & ayamase card",
+      "title": "Ofada rice and ayamase",
+      "author": "AI-generated",
+      "license": "Placeholder",
+      "licenseUrl": "#",
+      "source": "#",
+      "changes": ""
+    },
+    {
+      "file": "/img/peppersoup.jpg",
+      "use": "Goat pepper soup card",
+      "title": "Goat pepper soup",
+      "author": "AI-generated",
+      "license": "Placeholder",
+      "licenseUrl": "#",
+      "source": "#",
+      "changes": ""
+    },
+    {
+      "file": "/img/about.jpg",
+      "use": "About section",
+      "title": "Suya on the charcoal grill",
+      "author": "AI-generated",
+      "license": "Placeholder",
+      "licenseUrl": "#",
+      "source": "#",
+      "changes": ""
+    },
+    {
+      "file": "/img/interior.jpg",
+      "use": "Visit section",
+      "title": "Dining room concept",
+      "author": "AI-generated",
+      "license": "Placeholder",
+      "licenseUrl": "#",
+      "source": "#",
+      "changes": ""
+    },
+    {
+      "file": "/img/friends.jpg",
+      "use": "Events section",
+      "title": "Friends sharing a meal",
+      "author": "AI-generated",
+      "license": "Placeholder",
+      "licenseUrl": "#",
+      "source": "#",
+      "changes": ""
+    },
+    {
+      "file": "/img/chapman.jpg",
+      "use": "Gallery",
+      "title": "Chapman cocktail",
+      "author": "AI-generated",
+      "license": "Placeholder",
+      "licenseUrl": "#",
+      "source": "#",
+      "changes": ""
+    },
+    {
+      "file": "/img/smallchops.jpg",
+      "use": "Gallery",
+      "title": "Small chops platter",
+      "author": "AI-generated",
+      "license": "Placeholder",
+      "licenseUrl": "#",
+      "source": "#",
+      "changes": ""
+    },
+    {
+      "file": "/img/pass.jpg",
+      "use": "Gallery and menu page",
+      "title": "Plating at the pass",
+      "author": "AI-generated",
+      "license": "Placeholder",
+      "licenseUrl": "#",
+      "source": "#",
+      "changes": ""
+    },
+    {
+      "file": "/img/suya-close.jpg",
+      "use": "Gallery",
+      "title": "Suya close-up",
+      "author": "AI-generated",
+      "license": "Placeholder",
+      "licenseUrl": "#",
+      "source": "#",
+      "changes": ""
+    },
+    {
+      "file": "/img/jollof-close.jpg",
+      "use": "Gallery",
+      "title": "Jollof close-up",
+      "author": "AI-generated",
+      "license": "Placeholder",
+      "licenseUrl": "#",
+      "source": "#",
+      "changes": ""
+    }
+  ]
+}
